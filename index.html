@@ -1,144 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<style>
-    * {
-        text-decoration: none;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #0a0a0a;
-        margin: 0;
-    }
-    .navbar {
-        background: #ff5500;
-        padding: 15px;
-        font-family: Arial, sans-serif;
-        color: white;
-    }
-    .navdiv {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .logo {
-        font-size: 35px;
-        color: white;
-        font-weight: 600;
-        text-decoration: none;
-    }
-    ul {
-        display: flex;
-        list-style: none;
-    }
-    li {
-        margin-right: 25px;
-    }
-    li a {
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
-    li a:hover {
-        color: #ff9933;
-    }
-    footer {
-        text-align: center;
-        padding: 1rem;
-        background-color: #ff5500;
-        color: white;
-    }
-    footer p {
-        margin: 0;
-    }
-    .section1 {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 50px;
-        background-color: #121212;
-        flex-wrap: wrap;
-    }
-    .section1 img {
-        max-width: 100%;
-        height: auto;
-        margin-right: 50px;
-    }
-    .section1 h2 {
-        font-size: 40px;
-        color: white;
-    }
-    .section1 p {
-        color: white;
-        margin: 20px 0;
-    }
-    .button1 {
-        padding: 12px 25px;
-        border-radius: 25px;
-        border: none;
-        background-color: #ff5500;
-        color: #ffffff;
-        font-weight: 600;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease;
-    }
-
-    .button1:hover {
-        background-color: #ff7733;
-    }
-
-    .section2 {
-        background-color: #0d0d0d;
-        padding: 100px 0;
-        text-align: center;
-    }
-    .section2 h1 {
-        color: #ff5500;
-        margin-bottom: 10px;
-    }
-    .section2 p {
-        color: white;
-        margin-bottom: 40px;
-    }
-    .sec4 {
-        background-color: #121212;
-        padding: 100px 0;
-        text-align: center;
-    }
-    .sec4 h2 {
-        color: #ff5500;
-        margin-bottom: 10px;
-    }
-    .sec4 p {
-        color: white;
-        margin-bottom: 20px;
-    }
-</style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NRS Premium Car Wash</title>
+    <style>
+        * {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a0a;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #ff5500;
+            padding: 15px;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+        li {
+            margin-right: 20px;
+        }
+
+        li a {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        li a:hover {
+            color: #ff9933;
+        }
+
+        /* Mobile Navigation */
+        .menu-icon {
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: #ff5500;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Main Section */
+        .section1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 80px 20px;
+            background-color: #121212;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .section1 img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .section1 h2 {
+            font-size: 32px;
+            color: white;
+        }
+
+        .section1 p {
+            color: white;
+            margin: 15px 0;
+        }
+
+        .button1 {
+            padding: 12px 25px;
+            border-radius: 25px;
+            border: none;
+            background-color: #ff5500;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .button1:hover {
+            background-color: #ff7733;
+        }
+
+        /* Services Section */
+        .section2 {
+            background-color: #0d0d0d;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section2 h1 {
+            color: #ff5500;
+        }
+
+        .section2 p,
+        .section2 ul {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .section2 ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section2 li {
+            margin-bottom: 8px;
+        }
+
+        /* Contact Section */
+        .sec4 {
+            background-color: #121212;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .sec4 h1 {
+            color: #ff5500;
+        }
+
+        .sec4 p {
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #ff5500;
+            color: white;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .section1 {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .section1 h2 {
+                font-size: 26px;
+            }
+
+            .section2,
+            .sec4 {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="navdiv">
-            <div class="logo"><a href="#" style="color: white;">NRS Premium Car Wash & Accessories</a></div>
-            <ul>
+            <div class="logo">
+                <a href="#" style="color: white;">NRS Premium Car Wash & Accessories</a>
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
-</head>
 
-<body>
+    <!-- Hero Section -->
     <div class="section1">
-        <img src="nrs logo png.png" alt="Car Wash Image" height="300px" width="400px">
+        <img src="nrs_logo.png" alt="Car Wash Logo">
         <div>
             <h2>Your Car Deserves <span style="color: #ff5500;">Premium Care</span></h2>
             <p>We provide top-notch car wash and detailing services for a sparkling clean ride.</p>
@@ -146,33 +240,42 @@
         </div>
     </div>
 
+    <!-- Services Section -->
     <div id="services" class="section2">
         <h1>Our <span style="color: #ff5500;">Services</span></h1>
         <p>High-quality car detailing & wash services</p>
-        <ul style="list-style: none; color: white; padding: 0;">
-            <li>- Premium Exterior & Interior Car Wash</li>
-            <li>- Ceramic Coating & Paint Protection</li>
-            <li>- Steam Cleaning & Sanitization</li>
-            <li>- Headlight Restoration</li>
-            <li>- Engine Bay Cleaning</li>
-            <li>- Upholstery & Leather Treatment</li>
-            <li>- Alloy Wheel & Tire Cleaning</li>
-            <li>- Customized Car Accessories</li>
+        <ul>
+            <li>✔ Premium Exterior & Interior Car Wash</li>
+            <li>✔ Ceramic Coating & Paint Protection</li>
+            <li>✔ Steam Cleaning & Sanitization</li>
+            <li>✔ Headlight Restoration</li>
+            <li>✔ Engine Bay Cleaning</li>
+            <li>✔ Upholstery & Leather Treatment</li>
+            <li>✔ Alloy Wheel & Tire Cleaning</li>
+            <li>✔ Customized Car Accessories</li>
         </ul>
     </div>
 
+    <!-- Contact Section -->
     <div id="contact" class="sec4">
-        <h1 style="color: #ff5500;">Contact Us</h1>
-        <p>Visit us at Bowrampet, Hyderabad</p>
-        <p>📞 Call us: +91 9652964783, +91 9666453916</p>
-        <p>📧 Mail: saikumarnambigari@gmail.com</p>
-        <p>📍 Find us: Bowrampet X-road , opp. HP petrol
-            pump, Hyderabad, Telangana</p>
+        <h1>Contact Us</h1>
+        <p>📍 Bowrampet, Hyderabad</p>
+        <p>📞 Call: +91 9652964783, +91 9666453916</p>
+        <p>📧 Email: saikumarnambigari@gmail.com</p>
+        <p>🏠 Address: Bowrampet X-road, Opp. HP Petrol Pump, Hyderabad, Telangana</p>
     </div>
-</body>
 
-<footer>
-    <p>&copy; 2025 NRS Premium Car Wash & Accessories. All rights reserved.</p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 NRS Premium Car Wash & Accessories. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        }
+    </script>
+</body>
 
 </html>
