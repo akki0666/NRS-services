@@ -19,6 +19,7 @@
             margin: 0;
         }
 
+        /* Navbar */
         .navbar {
             background: #ff5500;
             padding: 15px;
@@ -27,52 +28,44 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-        }
-
-        .navdiv {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            max-width: 1200px;
-            margin: auto;
+            align-items: center;
+            padding: 15px 20px;
         }
 
         .logo {
-            font-size: 25px;
+            font-size: 20px;
             font-weight: 600;
         }
 
-        ul {
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .nav-menu {
             display: flex;
             list-style: none;
         }
 
-        li {
-            margin-right: 20px;
+        .nav-menu li {
+            margin: 0 15px;
         }
 
-        li a {
+        .nav-menu li a {
             color: white;
             font-size: 18px;
             font-weight: bold;
             transition: color 0.3s;
         }
 
-        li a:hover {
+        .nav-menu li a:hover {
             color: #ff9933;
         }
 
-        /* Mobile Navigation */
-        .menu-icon {
-            display: none;
-            font-size: 25px;
-            cursor: pointer;
-        }
-
-        .nav-menu {
-            display: flex;
-        }
-
+        /* Mobile Navbar */
         @media (max-width: 768px) {
             .menu-icon {
                 display: block;
@@ -81,25 +74,25 @@
             .nav-menu {
                 display: none;
                 flex-direction: column;
-                background: #ff5500;
                 position: absolute;
                 top: 60px;
                 left: 0;
                 width: 100%;
-                text-align: center;
+                background: #ff5500;
                 padding: 10px 0;
+                text-align: center;
             }
 
             .nav-menu.active {
                 display: flex;
             }
 
-            li {
+            .nav-menu li {
                 margin: 10px 0;
             }
         }
 
-        /* Main Section */
+        /* Hero Section */
         .section1 {
             display: flex;
             align-items: center;
@@ -119,13 +112,14 @@
         }
 
         .section1 h2 {
-            font-size: 32px;
+            font-size: 30px;
             color: white;
         }
 
         .section1 p {
             color: white;
             margin: 15px 0;
+            font-size: 16px;
         }
 
         .button1 {
@@ -147,44 +141,55 @@
         /* Services Section */
         .section2 {
             background-color: #0d0d0d;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
         .section2 h1 {
             color: #ff5500;
-        }
-
-        .section2 p,
-        .section2 ul {
-            color: white;
+            font-size: 28px;
             margin-bottom: 10px;
-            font-size: 16px;
         }
 
-        .section2 ul {
-            list-style: none;
+        .services-list {
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
             padding: 0;
         }
 
-        .section2 li {
-            margin-bottom: 8px;
+        .services-list li {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .services-list li::before {
+            content: "✔";
+            color: #ff5500;
+            margin-right: 10px;
         }
 
         /* Contact Section */
         .sec4 {
             background-color: #121212;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
         .sec4 h1 {
             color: #ff5500;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
         .sec4 p {
             color: white;
             margin-bottom: 8px;
+            font-size: 16px;
         }
 
         /* Footer */
@@ -217,22 +222,20 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="navdiv">
-            <div class="logo">
-                <a href="#" style="color: white;">NRS Premium Car Wash & Accessories</a>
-            </div>
-            <div class="menu-icon" onclick="toggleMenu()">☰</div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <div class="logo">
+            <a href="#" style="color: white;">NRS Car Wash</a>
         </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Hero Section -->
     <div class="section1">
-        <img src="nrs logo png.png" alt="Car Wash Logo">
+        <img src="nrs_logo.png" alt="Car Wash Logo">
         <div>
             <h2>Your Car Deserves <span style="color: #ff5500;">Premium Care</span></h2>
             <p>We provide top-notch car wash and detailing services for a sparkling clean ride.</p>
@@ -243,16 +246,15 @@
     <!-- Services Section -->
     <div id="services" class="section2">
         <h1>Our <span style="color: #ff5500;">Services</span></h1>
-        <p>High-quality car detailing & wash services</p>
-        <ul>
-            <li>✔ Premium Exterior & Interior Car Wash</li>
-            <li>✔ Ceramic Coating & Paint Protection</li>
-            <li>✔ Steam Cleaning & Sanitization</li>
-            <li>✔ Headlight Restoration</li>
-            <li>✔ Engine Bay Cleaning</li>
-            <li>✔ Upholstery & Leather Treatment</li>
-            <li>✔ Alloy Wheel & Tire Cleaning</li>
-            <li>✔ Customized Car Accessories</li>
+        <ul class="services-list">
+            <li>Premium Exterior & Interior Car Wash</li>
+            <li>Ceramic Coating & Paint Protection</li>
+            <li>Steam Cleaning & Sanitization</li>
+            <li>Headlight Restoration</li>
+            <li>Engine Bay Cleaning</li>
+            <li>Upholstery & Leather Treatment</li>
+            <li>Alloy Wheel & Tire Cleaning</li>
+            <li>Customized Car Accessories</li>
         </ul>
     </div>
 
